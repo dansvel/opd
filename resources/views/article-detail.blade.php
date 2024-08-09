@@ -4,7 +4,7 @@
 
 @section('content')
     <section class="section blog-single">
-        <div class="container" id="container" data-id="{{ $id }}" >
+        <div class="container" id="container" data-id="{{ $id }}">
             <div class="row justify-center">
                 <div class="lg:col-10 mt-14">
                     <img src="" alt="" id="article-image" class="mx-auto shadow-lg"/>
@@ -20,15 +20,16 @@
                     </div>
                     {{-- content --}}
                     <div class="content dark:text-white" id="content"></div>
-                <div class="flex flex-wrap gap-1" id="tags">
-                    Tag :
+                    <div class="flex flex-wrap gap-1" id="tags">
+                        Tag :
+                    </div>
+                    <div class="mt-10 flex justify-center items-center">
+                        <video class="media w-full" id="video" controls>
+                            <source type="video/mp4">
+                        </video>
+                    </div>
                 </div>
-                <div class="mt-10 flex justify-center items-center">
-                    <video class="media w-full" id="video" controls>
-                        <source type="video/mp4">
-                    </video>
-                </div>
-            </div>`
+            </div>
         </div>
     </section>
 
