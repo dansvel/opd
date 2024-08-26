@@ -496,6 +496,7 @@ class ArticleController extends Controller
 
             // Commit the database transaction
             DB::commit();
+
         } catch (\Throwable $th) {
             // Prepare the error response data
             $resp['message'] = $th->getMessage();
@@ -505,6 +506,7 @@ class ArticleController extends Controller
         }
 
         // Return the response as a JSON response
-        return response()->json($resp, $code);
+//        return response()->json($resp, $code);
+        return response()->view('article-detail', $article, $code);
     }
 }

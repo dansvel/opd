@@ -11,23 +11,30 @@
                 </div>
                 <div class="mt-10 max-w-[810px] lg:col-9">
                     {{-- title --}}
-                    <h1 class="h2 dark:text-white" id="title"></h1>
+                    <h1 class="h2 dark:text-white" id="title">{{ $title }}</h1>
                     <div class="">
                         {{-- username --}}
-                        <p class="text-dark dark:text-white" id="username"></p>
+                        <p class="text-dark dark:text-white" id="username">{{ $user['name'] }}</p>
                         {{-- date --}}
-                        <span class="text-sm flex" id="date"></span>
+                        <span class="text-sm flex" id="date">{{ $date }}</span>
                     </div>
                     {{-- content --}}
-                    <div class="content dark:text-white" id="content"></div>
+                    <div class="content dark:text-white" id="content">
+                        {!! $content !!}
+                    </div>
                     <div class="flex flex-wrap gap-1" id="tags">
                         Tag :
+                        @foreach ($tags as $tag)
+                            <span class="tag">
+                            <a href="/article?tag={{ $tag['name'] }}" >{{ $tag['name'] }}</a>
+                            </span>
+                        @endforeach
                     </div>
-                    <div class="mt-10 flex justify-center items-center">
-                        <video class="media w-full" id="video" controls>
-                            <source type="video/mp4">
-                        </video>
-                    </div>
+{{--                    <div class="mt-10 flex justify-center items-center">--}}
+{{--                        <video class="media w-full" id="video" controls>--}}
+{{--                            <source type="video/mp4">--}}
+{{--                        </video>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>
@@ -36,5 +43,5 @@
 @endsection
 
 @push('js')
-    <script src="{{ asset('assets/js/pages/article-detail.js') }}"></script>
+{{--    <script src="{{ asset('assets/js/pages/article-detail.js') }}"></script>--}}
 @endpush

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +42,8 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
 Route::get('/', fn ()  => view('landing-page'))->name('landing-page');
 
 Route::get('/article', fn ()  => view('article'))->name('article');
-Route::get('/article/{id}', fn($id) => view('article-detail', ['id' => $id]))->name('article.{id}');
+//Route::get('/article/{id}', fn($id) => view('article-detail', ['id' => $id]))->name('article.{id}');
+Route::get('/article/{slug}', [ArticleController::class, 'showSlug']);
 
 Route::get('/about', fn () => view('about'))->name('about');
 Route::get('/contact', fn () => view('contact'))->name('contact');
